@@ -9,7 +9,7 @@ export const updateCart = (state) =>{
         (acc, item) => acc + item.price*item.qty, 0
     ));
 
-    // calculate shipping price, if order over 100$ then free, else 10$ shipping
+    // calculate shipping price, if order over 100₹ then free, else 10₹ shipping
     state.shippingPrice = addDecimals( 
         (state.itemsPrice >= 100) ? 0:10 
     );
