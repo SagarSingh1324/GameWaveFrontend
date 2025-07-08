@@ -1,29 +1,38 @@
-import {Card} from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BASE_URL } from '../constants';
+import './CSS/ProductCard.css'; 
 
-const ProductCard = ({product}) => {
+const ProductCard = ({ product }) => {
   return (
-    <Card className='my-3 p-3 rounded'>
+    <Card className='product-card'>
       <Link to={`/product/${product._id}`}>
-        <Card.Img src={BASE_URL+'/api'+product.image} variant='top' />
+        <Card.Img
+          src={BASE_URL + '/api' + product.image}
+          variant='top'
+          className='product-image'
+        />
       </Link>
 
-      <Card.Body>
-        <Link to={`/product/${product._id}`}>
+      <Card.Body className='product-body'>
           <Card.Title as='div' className='product-title'>
-            <strong>{product.name}</strong>
+            {product.name}
           </Card.Title>
-        </Link>
 
-        <Card.Text as='div'>
-            {product.numReviews} reviews
+        <Card.Text as='div' className='product-reviews'>
+          {product.brand} 
         </Card.Text>
 
-        <Card.Text as='h3'>₹{product.price}</Card.Text>
+        <Card.Text as='div' className='product-reviews'>
+          {product.category} 
+        </Card.Text>
+        
+        <Card.Text as='h3' className='product-price'>
+          ₹{product.price}
+        </Card.Text>
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
 export default ProductCard;

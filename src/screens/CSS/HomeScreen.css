@@ -1,0 +1,35 @@
+/* HomeScreen.css */
+
+.home-screen {
+  padding: 2rem 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.products-row {
+  row-gap: 2rem;
+}
+
+.loader {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #666;
+  padding: 4rem 0;
+}
+
+.error-message {
+  text-align: center;
+  color: #c62828;
+  background-color: #ffebee;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
