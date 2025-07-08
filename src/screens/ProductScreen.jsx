@@ -1,16 +1,3 @@
-// import { useParams } from "react-router-dom";
-
-
-// const ProductScreen = () => {
-//     const {id: productId } = useParams();
-     
-//   return (
-//     <div>ProductScreen for product {productId}</div>
-//   )
-// }
-
-// export default ProductScreen;
-
 import {
   Row,
   Col,
@@ -24,11 +11,12 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useGetProductDetailsQuery } from '../slices/poductsApiSlice';
+import { useGetProductDetailsQuery } from '../slices/productsApiSlice';
 import Meta from '../components/Meta';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { addToCart }  from '../slices/cartSlice';
+import { BASE_URL } from '../constants';
 
  const ProductScreen = () => {
 
@@ -39,8 +27,6 @@ import { addToCart }  from '../slices/cartSlice';
   const navigate = useNavigate();
 
   const [qty, setQty] = useState(1);
-  // const [rating, setRating] = useState(0);
-  // const [comment, setComment] = useState('');
 
   const {
     data: product,
@@ -69,7 +55,7 @@ import { addToCart }  from '../slices/cartSlice';
         <Meta title={product.name} description={product.description} />
         <Row>
           <Col md={6}>
-            <Image src={product.image} alt={product.name} fluid />
+            <Image src={BASE_URL+'/api'+product.image} alt={product.name} fluid />
           </Col>
           <Col md={3}>
             <ListGroup variant='flush'>

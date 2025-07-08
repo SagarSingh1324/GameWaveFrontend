@@ -1,5 +1,5 @@
 import {Row, Col} from 'react-bootstrap';
-import { useGetProductsQuery } from '../slices/poductsApiSlice'; 
+import { useGetProductsQuery } from '../slices/productsApiSlice'; 
 
 import ProductCard from '../components/ProductCard';
 
