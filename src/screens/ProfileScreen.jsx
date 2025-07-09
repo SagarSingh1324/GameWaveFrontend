@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { useProfileMutation } from '../slices/usersApiSlice';
-import { useGetMyOrdersQuery } from '../slices/ordersApiSlice';
+// import { useGetMyOrdersQuery } from '../slices/ordersApiSlice';
 import { setCredentials } from '../slices/authSlice';
 import { Link } from 'react-router-dom';
 import './CSS/ProfileScreen.css'; 
@@ -19,14 +19,18 @@ const ProfileScreen = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const { userInfo } = useSelector((state) => state.auth);
-  const { data: orders, isLoading, error } = useGetMyOrdersQuery();
+
+  // const { data: orders, isLoading, error } = useGetMyOrdersQuery();
+  
   const [updateProfile, { isLoading: loadingUpdateProfile }] =
     useProfileMutation();
 
   useEffect(() => {
-    setName(userInfo.name);
-    setEmail(userInfo.email);
-  }, [userInfo.email, userInfo.name]);
+    if (userInfo) {
+      setName(userInfo.name);
+      setEmail(userInfo.email);
+    }
+  }, [userInfo]);
 
   const dispatch = useDispatch();
 
@@ -103,7 +107,7 @@ const ProfileScreen = () => {
         </div>
       </Col>
 
-      <Col md={9}>
+      {/* <Col md={9}>
         <div className="orders-section">
           <h2 className="section-title">My Orders</h2>
           {isLoading ? (
@@ -160,7 +164,7 @@ const ProfileScreen = () => {
             </Table>
           )}
         </div>
-      </Col>
+      </Col> */}
     </Row>
   );
 };
