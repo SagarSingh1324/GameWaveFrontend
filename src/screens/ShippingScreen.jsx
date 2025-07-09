@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import FormContainer from '../components/FormContainer';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { saveShippingAddress } from '../slices/cartSlice';
+import './CSS/ShippingScreen.css'; 
 
 const ShippingScreen = () => {
   const cart = useSelector((state) => state.cart);
@@ -29,31 +30,32 @@ const ShippingScreen = () => {
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 />
-      <h1>Shipping</h1>
-      <Form onSubmit={submitHandler}>
-        <Form.Group className='my-2' controlId='address'>
+      <h1 className="shipping-title">Shipping Address</h1>
+
+      <Form onSubmit={submitHandler} className="shipping-form">
+        <Form.Group controlId='address' className='form-group-modern'>
           <Form.Label>Address</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Enter address'
+            placeholder='Enter your address'
             value={address}
             required
             onChange={(e) => setAddress(e.target.value)}
-          ></Form.Control>
+          />
         </Form.Group>
 
-        <Form.Group className='my-2' controlId='city'>
+        <Form.Group controlId='city' className='form-group-modern'>
           <Form.Label>City</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Enter city'
+            placeholder='Enter your city'
             value={city}
             required
             onChange={(e) => setCity(e.target.value)}
-          ></Form.Control>
+          />
         </Form.Group>
 
-        <Form.Group className='my-2' controlId='postalCode'>
+        <Form.Group controlId='postalCode' className='form-group-modern'>
           <Form.Label>Postal Code</Form.Label>
           <Form.Control
             type='text'
@@ -61,10 +63,10 @@ const ShippingScreen = () => {
             value={postalCode}
             required
             onChange={(e) => setPostalCode(e.target.value)}
-          ></Form.Control>
+          />
         </Form.Group>
 
-        <Form.Group className='my-2' controlId='country'>
+        <Form.Group controlId='country' className='form-group-modern'>
           <Form.Label>Country</Form.Label>
           <Form.Control
             type='text'
@@ -72,10 +74,10 @@ const ShippingScreen = () => {
             value={country}
             required
             onChange={(e) => setCountry(e.target.value)}
-          ></Form.Control>
+          />
         </Form.Group>
 
-        <Button type='submit' variant='primary'>
+        <Button type='submit' className='submit-button-modern'>
           Continue
         </Button>
       </Form>

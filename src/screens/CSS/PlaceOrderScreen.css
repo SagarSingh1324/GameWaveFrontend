@@ -1,0 +1,43 @@
+.place-order {
+  margin-top: 2rem;
+}
+
+.info-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.order-item {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.item-name {
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+}
+
+.item-name:hover {
+  text-decoration: underline;
+}
+
+.summary-card {
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+}
+
+.modern-btn {
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.modern-btn:hover {
+  background-color: #0b5ed7;
+}
