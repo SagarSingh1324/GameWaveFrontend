@@ -1,7 +1,7 @@
 import { Row, Col } from 'react-bootstrap';
 import { useGetProductsQuery } from '../slices/productsApiSlice'; 
 import ProductCard from '../components/ProductCard';
-import './CSS/HomeScreen.css'; // <-- Import custom styles
+import './CSS/HomeScreen.css'; 
 
 const HomeScreen = () => {
   const { data: products, isLoading, error } = useGetProductsQuery();
