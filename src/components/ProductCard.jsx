@@ -1,6 +1,7 @@
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BASE_URL } from '../constants';
+import Rating from './Rating';
 import './CSS/ProductCard.css'; 
 
 const ProductCard = ({ product }) => {
@@ -19,11 +20,18 @@ const ProductCard = ({ product }) => {
             {product.name}
           </Card.Title>
 
-        <Card.Text as='div' className='product-reviews'>
+        <Card.Text className='product-rating'>
+          <Rating
+            value={product.rating}
+            text={`${product.numReviews} reviews`}
+          />
+        </Card.Text>
+
+        <Card.Text as='div' className='product-brand'>
           {product.brand} 
         </Card.Text>
 
-        <Card.Text as='div' className='product-reviews'>
+        <Card.Text as='div' className='product-category'>
           {product.category} 
         </Card.Text>
         

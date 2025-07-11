@@ -4,9 +4,16 @@ import { apiSlice } from "./apiSlice";
 export const productsApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getProducts: builder.query({
-            query: () => ({
-                url: PRODUCTS_URL,
-            }),
+            query: ({ categoryList=[], brandList=[] } = {}) => {
+                const params = new URLSearchParams();
+
+                brandList.forEach((b) => params.append("brand", b));
+                categoryList.forEach((c) => params.append("category", c));
+
+                return {
+                url: `${PRODUCTS_URL}?${params.toString()}`,
+                };
+            },
             keepUnusedDataFor: 5,
         }),
         getProductDetails: builder.query({

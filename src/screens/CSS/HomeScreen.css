@@ -31,3 +31,19 @@
   border-radius: 8px;
   font-weight: 500;
 }
+
+@media (min-width: 768px) {
+  .filter-panel {
+    border-right: 1px solid #ddd;
+    padding-right: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .filter-panel {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+  }
+}

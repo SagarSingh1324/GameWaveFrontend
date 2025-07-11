@@ -1,0 +1,21 @@
+.filter-panel {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  width: 100%;
+  background-color: #f8f9fa;
+}
+
+.filter-section {
+  margin-bottom: 15px;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.filter-checkbox input {
+  margin-right: 8px;
+}
