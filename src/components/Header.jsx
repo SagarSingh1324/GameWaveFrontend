@@ -39,7 +39,6 @@ const Header = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto align-items-center'>
               <SearchBox />
-
               <Nav.Link as={Link} to='/cart' className='nav-link-modern'>
                 <FaShoppingCart className='me-1' />
                 Cart

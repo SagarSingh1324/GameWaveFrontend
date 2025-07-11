@@ -1,17 +1,24 @@
 import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import { useGetProductsQuery } from '../slices/productsApiSlice'; 
 import ProductCard from '../components/ProductCard';
+import ProductCarousel from '../components/ProductCarousel';
+import Paginate from '../components/Paginate';
 import ProductFilterPanel from '../components/ProductFilterPanel';
 import './CSS/HomeScreen.css'; 
 
 const HomeScreen = () => {
+  const { pageNumber, keyword } = useParams();
+
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const { data: products, isLoading, error } = useGetProductsQuery({
     brandList: selectedBrands,
     categoryList: selectedCategories,
+    keyword: keyword,
+    pageNumber: pageNumber,
   });
 
   const handleBrandChange = (brand) => {
@@ -28,7 +35,6 @@ const HomeScreen = () => {
 
   return (
     <div className="home-screen">
-      <h1 className="section-title">Latest Products</h1>
       <Row>
         <Col md={2}>
           <ProductFilterPanel
@@ -39,21 +45,39 @@ const HomeScreen = () => {
           />
         </Col>
         <Col md={10}>
-          {isLoading ? (
-            <div className="loader">Loading...</div>
-          ) : error ? (
-            <div className="error-message">
-              {error?.data?.message || error.error}
-            </div>
-          ) : (
-            <Row className="products-row">
-              {products.map((product) => (
-                <Col key={product._id} sm={12} md={6} lg={4}>
-                  <ProductCard product={product} />
-                </Col>
-              ))}
-            </Row>
-          )}
+          <>
+            {!keyword ? (
+              <div className="carousel-wrapper">
+                <ProductCarousel />
+              </div>
+            ) : (
+              <Link to='/' className='btn btn-light mb-4'>
+                Go Back
+              </Link>
+            )}
+            {isLoading ? (
+              <div className="loader">Loading...</div>
+            ) : error ? (
+              <div className="error-message">
+                {error?.data?.message || error.error}
+              </div>
+            ) : (
+              <>
+                <Row className="products-row">
+                  {products?.products?.map((product) => (
+                    <Col key={product._id} sm={12} md={6} lg={4}>
+                      <ProductCard product={product} />
+                    </Col>
+                  ))}
+                </Row>
+                <Paginate
+                  pages={products.pages}
+                  page={products.page}
+                  keyword={keyword || ''}
+                />
+              </>
+            )}
+          </>
         </Col>
       </Row>
     </div>

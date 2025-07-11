@@ -14,6 +14,8 @@
 
 .products-row {
   row-gap: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
 }
 
 .loader {
@@ -31,6 +33,12 @@
   border-radius: 8px;
   font-weight: 500;
 }
+
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 
 @media (min-width: 768px) {
   .filter-panel {

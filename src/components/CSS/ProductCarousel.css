@@ -1,0 +1,47 @@
+.carousel {
+  width: 70%;
+  max-height: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #fff;
+
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;               
+  max-height: 400px;
+  object-fit: fill;
+  display: block;
+  margin: 0 auto;              
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  bottom: 20px;
+  right: 20px;
+  left: auto;
+  text-align: right;
+  max-width: 70%;
+}
+
+.carousel-caption h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
