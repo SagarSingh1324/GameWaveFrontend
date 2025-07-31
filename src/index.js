@@ -6,7 +6,6 @@ import App from './App';
 import { Provider } from 'react-redux';
 import store from './store.js';
 import { HelmetProvider } from 'react-helmet-async';
-import reportWebVitals from './reportWebVitals.js';
 import{
   createBrowserRouter, 
   createRoutesFromElements,
@@ -80,4 +79,4 @@ root.render(
   </React.StrictMode>
 );
 
-reportWebVitals();
+
