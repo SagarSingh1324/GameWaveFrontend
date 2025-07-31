@@ -12,7 +12,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useGetProductDetailsQuery } from '../slices/productsApiSlice';
-import Meta from '../components/Meta';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { addToCart } from '../slices/cartSlice';
@@ -50,7 +49,6 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
-          <Meta title={product.name} description={product.description} />
           <Row className="product-details">
             <Col md={6}>
               <Image

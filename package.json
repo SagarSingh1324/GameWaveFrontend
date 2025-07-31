@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
+  "description": "Frontend for GameWave website",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
     "react": "^18.3.1",
@@ -10,7 +11,6 @@
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
     "react-toastify": "^10.0.5",
-    "react-helmet-async": "^2.0.5",
     "bootstrap": "^5.3.3",
     "react-bootstrap": "^2.10.5",
     "react-router-bootstrap": "^0.26.3"
